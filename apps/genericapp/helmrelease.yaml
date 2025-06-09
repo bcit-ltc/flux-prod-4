@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: genericapp
+  namespace: genericapp
+spec:
+  interval: 5m
+  releaseName: uptime-kuma
+  chart:
+    spec:
+      chart: uptime-kuma
+      version: 2.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: tibuntu
+        namespace: flux-system
+  valuesFiles:
+    - ./apps/genericapp/values.yaml
+  dependsOn: []
