@@ -8,7 +8,7 @@ spec:
   releaseName: uptime-kuma
   chart:
     spec:
-      chart: uptime-kuma
+      chart: generic
       version: 2.0.0
       sourceRef:
         kind: HelmRepository
