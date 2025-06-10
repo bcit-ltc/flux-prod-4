@@ -16,7 +16,7 @@ spec:
         namespace: flux-system
   values:
     image:
-      registry: docker.io
+      registry: registry.hub.docker.com
       repository: ubuntu
       tag: latest
   dependsOn: []
