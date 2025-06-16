@@ -15,8 +15,8 @@ spec:
         kind: HelmRepository
         name: helm-charts
         namespace: flux-system
-      valuesFrom:
-        - kind: ConfigMap
-          name: values-latest
-          valuesKey: values.yaml
+  valuesFrom:
+    - kind: ConfigMap
+      name: values-latest
+      valuesKey: values.yaml
   dependsOn: []
