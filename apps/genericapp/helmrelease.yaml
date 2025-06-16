@@ -12,7 +12,7 @@ spec:
       version: 0.1.1
       sourceRef:
         kind: HelmRepository
-        name: cp-charts
+        name: helm-charts
         namespace: flux-system
   valuesFrom:
     - kind: GitRepository
