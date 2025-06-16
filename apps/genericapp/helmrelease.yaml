@@ -14,9 +14,9 @@ spec:
         kind: HelmRepository
         name: helm-charts
         namespace: flux-system
-  valuesFrom:
-    - kind: GitRepository
-      name: genericapp-values
-      namespace: flux-system
-      valuesKey: values.yaml
+  # valuesFrom:
+  #   - kind: GitRepository
+  #     name: genericapp-values
+  #     namespace: flux-system
+  #     valuesKey: values.yaml
   dependsOn: []
