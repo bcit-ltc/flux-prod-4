@@ -5,6 +5,11 @@ resources:
   - ./sources
   - ./apps
 
+labels:
+- includeSelectors: true
+  pairs:
+    environment: latest
+
 patches:
   - target:
       kind: HelmRelease
