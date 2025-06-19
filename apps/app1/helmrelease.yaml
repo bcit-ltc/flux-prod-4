@@ -10,7 +10,6 @@ spec:
   chart:
     spec:
       chart: app1
-      version: 0.1.6
       sourceRef:
         kind: HelmRepository
         name: helm-charts
