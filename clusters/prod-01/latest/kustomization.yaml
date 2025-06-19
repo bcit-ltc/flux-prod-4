@@ -4,3 +4,12 @@ kind: Kustomization
 resources:
   - ./sources
   - ./apps
+
+patches:
+  - target:
+      kind: HelmRelease
+    patch: |-
+      - op: add
+        path: /spec/chart/spec/valuesFiles
+        value:
+          - ./values-latest.yaml
