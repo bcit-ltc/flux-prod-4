@@ -3,9 +3,3 @@ kind: Kustomization
 resources:
   - helmrelease.yaml
   - namespace.yaml
-
-
-# valuesFrom:
-#   - kind: ConfigMap
-#     name: values-latest
-#     valuesKey: values.yaml
