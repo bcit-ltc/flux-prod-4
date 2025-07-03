@@ -1,0 +1,11 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: helmrelease
+spec:
+  interval: 10m
+  chartRef:
+    kind: OCIRepository
+    name: ocirepository
+  valuesFiles:
+    - values.yaml

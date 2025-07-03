@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - ./service
+
+
+# Locate all resources in a namespace (to ensure secrets are located correctly)
+#
+namespace: longhorn-system
+
+patches:
+  - target:
+      kind: Kustomization
+      group: kustomize.toolkit.fluxcd.io
+    patch: |-
+      - op: add
+        path: /spec/targetNamespace
+        value: longhorn-system
+

@@ -1,0 +1,27 @@
+# For secrets in the vault secrets operator namespace only
+#
+---
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultConnection
+metadata:
+  name: vault-connection
+spec:
+  address: https://vault.ltc.bcit.ca:8200
+---
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultAuthGlobal
+metadata:
+  name: vault-auth-global
+spec:
+  allowedNamespaces:
+    - "*"
+  defaultAuthMethod: kubernetes
+  kubernetes:
+    mount: kubernetes
+    audiences:
+    - vault
+    role: default
+    serviceAccount: default
+    tokenExpirationSeconds: 600
+  vaultConnectionRef:
+    name: vault-connection-global

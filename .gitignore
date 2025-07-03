@@ -1,0 +1,4 @@
+basic-auth-template.yaml
+dockerconfigjson-template.yaml
+scripts/*.sh
+!/init/*

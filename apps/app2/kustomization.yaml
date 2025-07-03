@@ -1,5 +1,21 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
 resources:
-  - helmrelease.yaml
-  - namespace.yaml
+  - ../base
+
+namePrefix: app2-
+
+namespace: app2
+
+# Generate an app-name to inject into the OCIRepository url. This is not added to the cluster.
+configMapGenerator:
+  - name: app-name
+    literals:
+      - app-name=app2
+    options:
+      annotations:
+        config.kubernetes.io/local-config: "true"
+
+components:
+  - ../../components/replacements/app-url

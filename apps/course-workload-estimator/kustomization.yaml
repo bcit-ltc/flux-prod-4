@@ -4,15 +4,15 @@ kind: Kustomization
 resources:
   - ../base
 
-namePrefix: app1-
+namePrefix: course-workload-estimator-
 
-namespace: app1
+namespace: course-workload-estimator
 
 # Generate an app-name to inject into the OCIRepository url. This is not added to the cluster.
 configMapGenerator:
   - name: app-name
     literals:
-      - app-name=app1
+      - app-name=course-workload-estimator
     options:
       annotations:
         config.kubernetes.io/local-config: "true"
