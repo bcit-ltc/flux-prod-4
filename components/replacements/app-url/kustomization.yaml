@@ -15,4 +15,4 @@ replacements:
           - spec.url
         options:
           delimiter: "/"
-          index: 4
+          index: 5

@@ -4,6 +4,6 @@ metadata:
   name: ocirepository
 spec:
   interval: 5m0s
-  url: oci://ghcr.io/bcit-ltc/appName/oci
+  url: oci://ghcr.io/bcit-ltc/oci/appName
   ref:
     semver: ">= 1.0.0"
