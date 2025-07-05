@@ -4,14 +4,14 @@
 apiVersion: secrets.hashicorp.com/v1beta1
 kind: VaultConnection
 metadata:
-  name: vault-connection
+  name: vaultconnection
 spec:
   address: https://vault.ltc.bcit.ca:8200
 ---
 apiVersion: secrets.hashicorp.com/v1beta1
 kind: VaultAuthGlobal
 metadata:
-  name: vault-auth-global
+  name: vaultauthglobal
 spec:
   allowedNamespaces:
     - "*"
@@ -20,8 +20,8 @@ spec:
     mount: kubernetes
     audiences:
     - vault
-    role: default
-    serviceAccount: default
+    role: vaultauth
+    serviceAccount: serviceaccount
     tokenExpirationSeconds: 600
   vaultConnectionRef:
-    name: vault-connection-global
+    name: vaultconnection

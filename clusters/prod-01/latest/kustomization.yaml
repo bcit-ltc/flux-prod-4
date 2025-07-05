@@ -10,18 +10,12 @@ labels:
   pairs:
     environment: latest
 
-nameSuffix: -latest
-
-# Add alternate values if they exist
-patches:
-  - target:
-      kind: HelmRelease
-    patch: |-
-      - op: add
-        path: /spec/valuesFiles/1
-        value: "values-alt.yaml"
-      - op: add
-        path: /spec/ignoreMissingValuesFiles
-        value: true
-
-
+# Create a single resource for this environment that can be used by replacements.
+#
+configMapGenerator:
+  - name: flux-env
+    literals:
+      - fluxEnv=latest
+    options:
+      annotations:
+        config.kubernetes.io/local-config: "true"

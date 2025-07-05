@@ -3,19 +3,18 @@ kind: Kustomization
 
 resources:
   # - namespace.yaml - namespace created by flux bootstrap
-  - ./service
+  - helmrepository.yaml
+  - helmrelease.yaml
+  - vault-connection.yaml
 
+namePrefix: vault-secrets-operator-
 
-# Locate all resources in a namespace (to ensure secrets are located correctly)
-#
 namespace: vault-secrets-operator-system
 
-patches:
-  - target:
-      kind: Kustomization
-      group: kustomize.toolkit.fluxcd.io
-    patch: |-
-      - op: add
-        path: /spec/targetNamespace
-        value: vault-secrets-operator-system
+# update generated vault-connection name
+configurations:
+  - kustomizeconfig.yaml
 
+components:
+  # Required for VaultAuth role and serviceaccounts
+  - ../../components/generators/vault-auth
