@@ -7,4 +7,4 @@ spec:
   url: oci://ghcr.io/bcit-ltc/oci/appName
   ref:
     semver: ">= 1.0.0"
-    semverFilter: ".*latest.*"
+    semverFilter: ".*-latest.*"
