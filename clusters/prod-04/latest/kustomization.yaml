@@ -25,5 +25,5 @@ patches:
       kind: OCIRepository
     patch: |-
       - op: add
-        path: /spec/ref
-        value: "semverFilter: \".*-latest.*\""
+        path: /spec/ref/semverFilter
+        value: ".*-latest.*"
